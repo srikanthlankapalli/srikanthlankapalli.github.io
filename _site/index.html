@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Home</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Home" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Home" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"Home","url":"/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <section>
+        <style>
+  body {
+    min-height: 100vh;
+  }
+
+  .page-content {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-shell {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0 0 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .home-header h1 {
+    margin-bottom: 0.4rem;
+  }
+
+  .search-box {
+    margin: 1rem auto 1.5rem;
+    max-width: 620px;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+
+  .panel {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    background: #fafafa;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .panel h2 {
+    margin-top: 0;
+  }
+
+  .recent-posts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-item {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid #ececec;
+  }
+
+  .post-item:last-child {
+    border-bottom: none;
+  }
+
+  .post-item a {
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .post-item small {
+    display: block;
+    color: #666;
+    margin-top: 0.2rem;
+  }
+
+  .tag-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .category-tag {
+    display: inline-block;
+    color: #1f4f99;
+    text-decoration: none;
+    background: #eef3ff;
+    border: 1px solid #dfe8ff;
+    border-radius: 999px;
+    padding: 0.15rem 0.55rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .category-tag:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="home-shell">
+
+  <div class="home-header">
+    <h1>Notes by Srikanth Lankapalli</h1>
+    <p>Thoughts, learning notes, and things I build.</p>
+  </div>
+
+  <div class="search-box">
+    <label for="post-search">Search posts</label>
+    <input id="post-search" type="search" placeholder="Search by title, category, or keyword..." aria-label="Search posts" />
+  </div>
+
+  <section class="panel">
+    <h2>Recent posts</h2>
+    <ul class="recent-posts">
+      
+      
+        <li class="post-item" data-title="Generators" data-category="programming python " data-content="Python generators are a simple way to create iterators without storing everything in memory at once. They are especially useful when working with large datasets or when you want to lazily produce values one at a time. Why use generators? A normal function returns a single value, but a generator yields one value at a time and pauses between yields. This makes it easy to process streams of data efficiently. def count_up_to(limit): current = 1 while current &amp;lt;= limit: yield current current += 1 for value in count_up_to(5): print(value) This prints: 1 2 3 4 5 When to prefer generators processing large files streaming data from APIs working with infinite or very large sequences reducing memory usage in data pipelines Generators are a powerful tool in Python because they keep code readable while improving efficiency.">
+          <a href="/programming/python/2026/09/23/generator.html">Generators</a>
+          <small>
+            September 23, 2026
+            
+              ·
+              <span class="tag-list">
+                
+                  <a href="#" class="category-tag" data-category="programming">programming</a>
+                
+                  <a href="#" class="category-tag" data-category="python">python</a>
+                
+              </span>
+            
+          </small>
+        </li>
+      
+        <li class="post-item" data-title="Virtual Threads in Java" data-category="programming java " data-content="Java virtual threads are part of Project Loom and provide a lightweight alternative to traditional platform threads. They are designed to make concurrent applications easier to write and scale without requiring a large thread pool or complex async code. Why virtual threads matter Traditional Java threads are still backed by OS threads, which means creating thousands or even millions of them can become expensive. Virtual threads solve this by allowing many tasks to run concurrently while using far fewer OS resources. This is especially useful for web servers, APIs, and applications that handle many independent I/O-bound tasks. A simple example import java.util.concurrent.ExecutorService; import java.util.concurrent.Executors; public class VirtualThreadDemo { public static void main(String[] args) throws InterruptedException { try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) { for (int i = 0; i &amp;lt; 10; i++) { int taskId = i; executor.submit(() -&amp;gt; { System.out.println(&quot;Task &quot; + taskId + &quot; started&quot;); try { Thread.sleep(1000); } catch (InterruptedException e) { Thread.currentThread().interrupt(); } System.out.println(&quot;Task &quot; + taskId + &quot; finished&quot;); }); } } } } This pattern is very readable and makes it easy to think of each task as a separate unit of work. When to use them Virtual threads are ideal when: you have many I/O-bound tasks your application makes lots of network calls or database queries you want simpler concurrency code without callback-heavy async style Trade-offs They are not a replacement for all threading patterns. CPU-bound work still benefits from a more careful design, and thread-local state must be handled with awareness. Still, for many modern Java services, virtual threads are a big step forward in making concurrency easier to manage. Final thoughts Virtual threads make Java better suited for highly concurrent workloads without the usual overhead of massive thread pools. If you are building modern Java applications, they are worth learning seriously.">
+          <a href="/programming/java/2026/09/23/virtual-threads.html">Virtual Threads in Java</a>
+          <small>
+            September 23, 2026
+            
+              ·
+              <span class="tag-list">
+                
+                  <a href="#" class="category-tag" data-category="programming">programming</a>
+                
+                  <a href="#" class="category-tag" data-category="java">java</a>
+                
+              </span>
+            
+          </small>
+        </li>
+      
+    </ul>
+  </section>
+</div>
+
+<script>
+  const searchInput = document.getElementById('post-search');
+  const posts = Array.from(document.querySelectorAll('.post-item'));
+
+  function applyFilter(query) {
+    const normalized = (query || '').trim().toLowerCase();
+
+    posts.forEach(function (post) {
+      const text = (post.dataset.title || '') + ' ' + (post.dataset.category || '') + ' ' + (post.dataset.content || '');
+      const isMatch = !normalized || text.toLowerCase().includes(normalized);
+      post.style.display = isMatch ? '' : 'none';
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      applyFilter(this.value);
+    });
+  }
+
+  document.addEventListener('click', function (event) {
+    const tag = event.target.closest('.category-tag');
+    if (!tag) return;
+
+    event.preventDefault();
+    const category = tag.dataset.category || '';
+    if (searchInput) {
+      searchInput.value = category;
+    }
+    applyFilter(category);
+  });
+</script>
+
+
+      </section>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html>

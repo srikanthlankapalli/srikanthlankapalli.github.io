@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Generators</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Generators" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python generators are a simple way to create iterators without storing everything in memory at once." />
+<meta property="og:description" content="Python generators are a simple way to create iterators without storing everything in memory at once." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-09-23T19:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Generators" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-23T19:00:00-05:00","datePublished":"2026-09-23T19:00:00-05:00","description":"Python generators are a simple way to create iterators without storing everything in memory at once.","headline":"Generators","mainEntityOfPage":{"@type":"WebPage","@id":"/programming/python/2026/09/23/generator.html"},"url":"/programming/python/2026/09/23/generator.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <section>
+        <small>23 September 2026</small>
+<h1>Generators</h1>
+
+<p class="view">by </p>
+
+<p>Python generators are a simple way to create iterators without storing everything in memory at once.</p>
+
+<p>They are especially useful when working with large datasets or when you want to lazily produce values one at a time.</p>
+
+<h2 id="why-use-generators">Why use generators?</h2>
+
+<p>A normal function returns a single value, but a generator yields one value at a time and pauses between yields. This makes it easy to process streams of data efficiently.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">count_up_to</span><span class="p">(</span><span class="n">limit</span><span class="p">):</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">current</span> <span class="o">&lt;=</span> <span class="n">limit</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">current</span>
+        <span class="n">current</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nf">count_up_to</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This prints:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+</code></pre></div></div>
+
+<h2 id="when-to-prefer-generators">When to prefer generators</h2>
+
+<ul>
+  <li>processing large files</li>
+  <li>streaming data from APIs</li>
+  <li>working with infinite or very large sequences</li>
+  <li>reducing memory usage in data pipelines</li>
+</ul>
+
+<p>Generators are a powerful tool in Python because they keep code readable while improving efficiency.</p>
+
+
+
+  <small>tags: <em></em></small>
+
+
+      </section>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html>

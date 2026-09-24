@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Virtual Threads in Java</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Virtual Threads in Java" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Java virtual threads are part of Project Loom and provide a lightweight alternative to traditional platform threads. They are designed to make concurrent applications easier to write and scale without requiring a large thread pool or complex async code." />
+<meta property="og:description" content="Java virtual threads are part of Project Loom and provide a lightweight alternative to traditional platform threads. They are designed to make concurrent applications easier to write and scale without requiring a large thread pool or complex async code." />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-09-23T19:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Virtual Threads in Java" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-09-23T19:00:00-05:00","datePublished":"2026-09-23T19:00:00-05:00","description":"Java virtual threads are part of Project Loom and provide a lightweight alternative to traditional platform threads. They are designed to make concurrent applications easier to write and scale without requiring a large thread pool or complex async code.","headline":"Virtual Threads in Java","mainEntityOfPage":{"@type":"WebPage","@id":"/programming/java/2026/09/23/virtual-threads.html"},"url":"/programming/java/2026/09/23/virtual-threads.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <section>
+        <small>23 September 2026</small>
+<h1>Virtual Threads in Java</h1>
+
+<p class="view">by </p>
+
+<p>Java virtual threads are part of Project Loom and provide a lightweight alternative to traditional platform threads. They are designed to make concurrent applications easier to write and scale without requiring a large thread pool or complex async code.</p>
+
+<h2 id="why-virtual-threads-matter">Why virtual threads matter</h2>
+
+<p>Traditional Java threads are still backed by OS threads, which means creating thousands or even millions of them can become expensive. Virtual threads solve this by allowing many tasks to run concurrently while using far fewer OS resources.</p>
+
+<p>This is especially useful for web servers, APIs, and applications that handle many independent I/O-bound tasks.</p>
+
+<h2 id="a-simple-example">A simple example</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.concurrent.ExecutorService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VirtualThreadDemo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">(</span><span class="nc">ExecutorService</span> <span class="n">executor</span> <span class="o">=</span> <span class="nc">Executors</span><span class="o">.</span><span class="na">newVirtualThreadPerTaskExecutor</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">taskId</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+                <span class="n">executor</span><span class="o">.</span><span class="na">submit</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Task "</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">" started"</span><span class="o">);</span>
+                    <span class="k">try</span> <span class="o">{</span>
+                        <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+                    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="nc">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">interrupt</span><span class="o">();</span>
+                    <span class="o">}</span>
+                    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Task "</span> <span class="o">+</span> <span class="n">taskId</span> <span class="o">+</span> <span class="s">" finished"</span><span class="o">);</span>
+                <span class="o">});</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This pattern is very readable and makes it easy to think of each task as a separate unit of work.</p>
+
+<h2 id="when-to-use-them">When to use them</h2>
+
+<p>Virtual threads are ideal when:</p>
+
+<ul>
+  <li>you have many I/O-bound tasks</li>
+  <li>your application makes lots of network calls or database queries</li>
+  <li>you want simpler concurrency code without callback-heavy async style</li>
+</ul>
+
+<h2 id="trade-offs">Trade-offs</h2>
+
+<p>They are not a replacement for all threading patterns. CPU-bound work still benefits from a more careful design, and thread-local state must be handled with awareness.</p>
+
+<p>Still, for many modern Java services, virtual threads are a big step forward in making concurrency easier to manage.</p>
+
+<h2 id="final-thoughts">Final thoughts</h2>
+
+<p>Virtual threads make Java better suited for highly concurrent workloads without the usual overhead of massive thread pools. If you are building modern Java applications, they are worth learning seriously.</p>
+
+
+
+  <small>tags: <em></em></small>
+
+
+      </section>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+  </body>
+</html>
