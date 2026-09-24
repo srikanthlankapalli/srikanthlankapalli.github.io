@@ -3,7 +3,7 @@ layout: default
 title: Posts
 ---
 
-# Posts
+# Notes by Srikanth Lankapalli
 
 <ul>
   {% for post in site.posts %}
