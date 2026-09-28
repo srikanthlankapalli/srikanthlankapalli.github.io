@@ -15,14 +15,16 @@ title: Home
     min-height: 100vh;
     margin: 0 auto;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     box-sizing: border-box;
   }
 
   .wrapper > section {
     width: 100%;
+    max-width: none;
     float: none;
+    margin: 0;
     border: 0;
     padding: clamp(24px, 4vh, 56px) clamp(16px, 4vw, 64px);
     box-sizing: border-box;
@@ -36,19 +38,17 @@ title: Home
   }
 
   .home-shell {
-    width: min(100%, 1120px);
+    width: 100%;
     margin: 0;
     padding: 0;
-    transform: translateY(calc(clamp(16px, 4vh, 40px) * -1));
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .home-header {
     margin-bottom: 1.5rem;
-    text-align: center;
+    text-align: left;
   }
 
   .home-header h1 {
@@ -56,8 +56,8 @@ title: Home
   }
 
   .search-box {
-    margin: 1rem auto 1.5rem;
-    max-width: 620px;
+    width: min(100%, 620px);
+    margin: 0 0 1.5rem;
   }
 
   .search-box input {
