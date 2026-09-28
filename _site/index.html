@@ -10,11 +10,13 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home" />
 <meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Home" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","headline":"Home","url":"/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","headline":"Home","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/css/style.css?v=">
@@ -39,6 +41,26 @@
         <style>
   body {
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrapper {
+    width: min(100%, 1440px);
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .wrapper > section {
+    width: 100%;
+    float: none;
+    border: 0;
+    padding: clamp(24px, 4vh, 56px) clamp(16px, 4vw, 64px);
+    box-sizing: border-box;
   }
 
   .page-content {
@@ -49,10 +71,10 @@
   }
 
   .home-shell {
-    width: 100%;
-    min-height: 100vh;
+    width: min(100%, 1120px);
     margin: 0;
-    padding: 0 0 3rem;
+    padding: 0;
+    transform: translateY(calc(clamp(16px, 4vh, 40px) * -1));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,6 +111,7 @@
     background: #fafafa;
     width: 100%;
     margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .panel h2 {

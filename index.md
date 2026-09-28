@@ -6,6 +6,26 @@ title: Home
 <style>
   body {
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrapper {
+    width: min(100%, 1440px);
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .wrapper > section {
+    width: 100%;
+    float: none;
+    border: 0;
+    padding: clamp(24px, 4vh, 56px) clamp(16px, 4vw, 64px);
+    box-sizing: border-box;
   }
 
   .page-content {
@@ -16,10 +36,10 @@ title: Home
   }
 
   .home-shell {
-    width: 100%;
-    min-height: 100vh;
+    width: min(100%, 1120px);
     margin: 0;
-    padding: 0 0 3rem;
+    padding: 0;
+    transform: translateY(calc(clamp(16px, 4vh, 40px) * -1));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,6 +76,7 @@ title: Home
     background: #fafafa;
     width: 100%;
     margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .panel h2 {
