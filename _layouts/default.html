@@ -27,6 +27,19 @@
           border: 0;
           box-sizing: border-box;
         }
+
+        .breadcrumbs {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          margin: 0 0 1.5rem;
+          color: #727272;
+          font-size: 0.9rem;
+        }
+
+        .breadcrumbs a {
+          color: #267cb9;
+        }
       }
     </style>
     <!--[if lt IE 9]>
@@ -37,6 +50,24 @@
   <body>
     <div class="wrapper">
       <section>
+        {% unless page.url == "/" %}
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="{{ '/' | relative_url }}">Home</a>
+            {% if page.breadcrumbs %}
+              {% for crumb in page.breadcrumbs %}
+                <span aria-hidden="true">/</span>
+                <a href="{{ crumb.url | relative_url }}">{{ crumb.title }}</a>
+              {% endfor %}
+            {% elsif page.categories %}
+              {% assign category_path = '' %}
+              {% for category in page.categories %}
+                {% assign category_path = category_path | append: category | append: '/' %}
+                <span aria-hidden="true">/</span>
+                <a href="{{ '/' | append: category_path | relative_url }}">{{ category | capitalize }}</a>
+              {% endfor %}
+            {% endif %}
+          </nav>
+        {% endunless %}
         {{ content }}
       </section>
     </div>
