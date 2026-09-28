@@ -7,6 +7,28 @@
 
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <style>
+      @media screen {
+        body {
+          padding: clamp(16px, 4vw, 48px);
+        }
+
+        div.wrapper {
+          width: min(100%, 1440px);
+          margin: 0 auto;
+        }
+
+        .wrapper > section {
+          width: 100%;
+          max-width: 1120px;
+          float: none;
+          margin: 0 auto;
+          padding: 0;
+          border: 0;
+          box-sizing: border-box;
+        }
+      }
+    </style>
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
