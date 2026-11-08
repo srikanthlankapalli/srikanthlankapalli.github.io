@@ -2,7 +2,7 @@
 layout: post
 title: "Generators"
 date: 2026-09-24 00:00:00 +0000
-categories:
+tags:
   - programming
   - python
 ---
