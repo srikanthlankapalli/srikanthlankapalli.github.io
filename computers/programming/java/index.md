@@ -2,8 +2,8 @@
 layout: category
 title: Java
 category_key: java
-permalink: /programming/java/
+permalink: computers/programming/java/
 breadcrumbs:
   - title: Programming
-    url: /programming/
+    url: computers/programming/
 ---

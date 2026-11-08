@@ -2,8 +2,8 @@
 layout: category
 title: Backend
 category_key: backend
-permalink: /programming/backend/
+permalink: computers/programming/backend/
 breadcrumbs:
   - title: Programming
-    url: /programming/
+    url: computers/programming/
 ---
