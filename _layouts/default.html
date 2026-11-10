@@ -7,6 +7,42 @@
 
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <style>
+      @media screen {
+        body {
+          padding: clamp(16px, 4vw, 48px);
+        }
+
+        div.wrapper {
+          width: min(100%, 1440px);
+          margin: 0 auto;
+        }
+
+        .wrapper > section {
+          width: 100%;
+          max-width: 1120px;
+          float: none;
+          margin: 0 auto;
+          padding: 0;
+          font-size: 16px;
+          border: 0;
+          box-sizing: border-box;
+        }
+
+        .breadcrumbs {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          margin: 0 0 1.5rem;
+          color: #727272;
+          font-size: 0.9rem;
+        }
+
+        .breadcrumbs a {
+          color: #267cb9;
+        }
+      }
+    </style>
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -15,6 +51,24 @@
   <body>
     <div class="wrapper">
       <section>
+        {% unless page.url == "/" %}
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="{{ '/' | relative_url }}">Home</a>
+            {% if page.breadcrumbs %}
+              {% for crumb in page.breadcrumbs %}
+                <span aria-hidden="true">/</span>
+                <a href="{{ crumb.url | relative_url }}">{{ crumb.title }}</a>
+              {% endfor %}
+            {% elsif page.categories %}
+              {% assign category_path = '' %}
+              {% for category in page.categories %}
+                {% assign category_path = category_path | append: category | append: '/' %}
+                <span aria-hidden="true">/</span>
+                <a href="{{ '/' | append: category_path | relative_url }}">{{ category | capitalize }}</a>
+              {% endfor %}
+            {% endif %}
+          </nav>
+        {% endunless %}
         {{ content }}
       </section>
     </div>

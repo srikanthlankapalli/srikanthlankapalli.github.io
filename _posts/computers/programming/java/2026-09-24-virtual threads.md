@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Virtual Threads in Java"
-date: 2026-09-24 00:00:00 +0000
+date: 2026-09-24
 categories:
   - programming
   - java
